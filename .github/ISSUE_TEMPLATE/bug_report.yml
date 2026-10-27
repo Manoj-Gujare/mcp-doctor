@@ -1,0 +1,38 @@
+name: Bug report
+description: Something in mcp-doctor is broken or gives a wrong result.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you ran, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command
+      placeholder: mcpdoctor scan --stdio "npx -y @modelcontextprotocol/server-memory"
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Paste the terminal output, or `--json` output if relevant.
+      render: shell
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `mcpdoctor --version`
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Linux, Windows, Other]
+    validations:
+      required: true
