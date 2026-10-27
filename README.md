@@ -1,23 +1,23 @@
-<h1 align="center">mcpdoctor</h1>
+<h1 align="center">mcpgrader</h1>
 
 <p align="center">
   <strong>Lint and score any MCP server in one command: token bloat, vague tool descriptions, and a concrete fix list.</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Manoj-Gujare/mcpdoctor/actions/workflows/ci.yml"><img src="https://github.com/Manoj-Gujare/mcpdoctor/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://pypi.org/project/mcpdoctor/"><img src="https://img.shields.io/pypi/v/mcpdoctor.svg" alt="PyPI"></a>
-  <a href="https://pypi.org/project/mcpdoctor/"><img src="https://img.shields.io/pypi/pyversions/mcpdoctor.svg" alt="Python versions"></a>
+  <a href="https://github.com/Manoj-Gujare/mcpgrader/actions/workflows/ci.yml"><img src="https://github.com/Manoj-Gujare/mcpgrader/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://pypi.org/project/mcpgrader/"><img src="https://img.shields.io/pypi/v/mcpgrader.svg" alt="PyPI"></a>
+  <a href="https://pypi.org/project/mcpgrader/"><img src="https://img.shields.io/pypi/pyversions/mcpgrader.svg" alt="Python versions"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
 <p align="center">
-  <img src="docs/assets/demo.svg" alt="mcpdoctor scanning a server and reporting a score of 55/100" width="820">
+  <img src="docs/assets/demo.svg" alt="mcpgrader scanning a server and reporting a score of 55/100" width="820">
 </p>
 
 Every MCP tool you connect is sent to the model on **every request**: its name, description, and
 full JSON schema. A few heavy servers can quietly eat thousands of context tokens, and vague or
-near-duplicate descriptions make the model pick the wrong tool. `mcpdoctor` connects to a server,
+near-duplicate descriptions make the model pick the wrong tool. `mcpgrader` connects to a server,
 reads what it advertises, and tells you exactly what to fix.
 
 ## Quick start
@@ -25,30 +25,30 @@ reads what it advertises, and tells you exactly what to fix.
 No install needed, with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uvx mcpdoctor scan --stdio "npx -y @modelcontextprotocol/server-filesystem /tmp"
+uvx mcpgrader scan --stdio "npx -y @modelcontextprotocol/server-filesystem /tmp"
 ```
 
 Or install it:
 
 ```bash
-pipx install mcpdoctor      # or: uv tool install mcpdoctor / pip install mcpdoctor
-mcpdoctor scan --url https://example.com/mcp
+pipx install mcpgrader      # or: uv tool install mcpgrader / pip install mcpgrader
+mcpgrader scan --url https://example.com/mcp
 ```
 
 ## Usage
 
 ```bash
 # A local server, launched over stdio
-mcpdoctor scan --stdio "npx -y @modelcontextprotocol/server-memory"
+mcpgrader scan --stdio "npx -y @modelcontextprotocol/server-memory"
 
 # A remote server over streamable HTTP
-mcpdoctor scan --url http://localhost:8000/mcp
+mcpgrader scan --url http://localhost:8000/mcp
 
 # Every server in your Claude Desktop / Cursor / VS Code config
-mcpdoctor scan --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
+mcpgrader scan --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 # Machine-readable output, and fail CI below a score
-mcpdoctor scan --config .cursor/mcp.json --json --fail-under 80
+mcpgrader scan --config .cursor/mcp.json --json --fail-under 80
 ```
 
 | Option | Description |
@@ -60,7 +60,7 @@ mcpdoctor scan --config .cursor/mcp.json --json --fail-under 80
 | `--fail-under <score>` | Exit with code 1 if any server scores below this. |
 | `--timeout <seconds>` | Per-server timeout for connecting and listing (default 30). |
 
-`mcpdoctor` runs `initialize`, `tools/list`, and (when the server supports them) `prompts/list`
+`mcpgrader` runs `initialize`, `tools/list`, and (when the server supports them) `prompts/list`
 and `resources/list`, then disconnects. It never calls a tool.
 
 **Exit codes:** `0` scan finished, `1` a score is below `--fail-under`, `2` a server could not be
@@ -72,7 +72,7 @@ traceback.
 Real output from scanning the deliberately flawed [fixture server](tests/fixtures/bad_server.py):
 
 ```text
-mcpdoctor › notes-demo  6 tools · 0 prompts · 0 resources
+mcpgrader › notes-demo  6 tools · 0 prompts · 0 resources
 
  Tool           ~Tokens   Issues   Description
  ────────────────────────────────────────────────────────────────────────────────────────────
@@ -129,7 +129,7 @@ Each tool is serialized the way clients send it to a model (`name`, `description
 | A single tool exceeds 500 tokens | warn |
 
 The report includes per-tool counts, the total, and the five heaviest tools. Thresholds live in
-one dict, `THRESHOLDS`, in [`token_cost.py`](src/mcpdoctor/checks/token_cost.py).
+one dict, `THRESHOLDS`, in [`token_cost.py`](src/mcpgrader/checks/token_cost.py).
 
 ### Description lint (`description_lint`)
 
@@ -164,15 +164,15 @@ goes below 0:
 | 0–59 | F |
 
 The fixture above has 1 error and 6 warnings: `100 − 15 − 6 × 5 = 55`, grade **F**. The formula
-lives in [`scoring.py`](src/mcpdoctor/scoring.py).
+lives in [`scoring.py`](src/mcpgrader/scoring.py).
 
 ## Use it in CI
 
 Fail a pull request when your server's tool definitions get worse:
 
 ```yaml
-# .github/workflows/mcpdoctor.yml
-name: mcpdoctor
+# .github/workflows/mcpgrader.yml
+name: mcpgrader
 on: [pull_request]
 jobs:
   audit:
@@ -180,7 +180,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uvx mcpdoctor scan --stdio "python server.py" --fail-under 80
+      - run: uvx mcpgrader scan --stdio "python server.py" --fail-under 80
 ```
 
 ## JSON output
@@ -189,7 +189,7 @@ jobs:
 and metrics (per-tool token counts included), the score, and the grade.
 
 ```bash
-mcpdoctor scan --stdio "python server.py" --json | jq '.servers[0] | {score, grade}'
+mcpgrader scan --stdio "python server.py" --json | jq '.servers[0] | {score, grade}'
 ```
 
 ## Roadmap
@@ -202,7 +202,7 @@ mcpdoctor scan --stdio "python server.py" --json | jq '.servers[0] | {score, gra
 - [ ] **Public server leaderboard**: scan popular public MCP servers and publish their scores
 - [ ] SARIF output for GitHub code scanning
 
-Have an idea for a check? [Open an issue](https://github.com/Manoj-Gujare/mcpdoctor/issues/new/choose).
+Have an idea for a check? [Open an issue](https://github.com/Manoj-Gujare/mcpgrader/issues/new/choose).
 
 ## Contributing
 
@@ -210,8 +210,8 @@ Contributions are welcome, especially new checks. A check is one file: see
 [CONTRIBUTING.md](CONTRIBUTING.md) for the five-minute guide.
 
 ```bash
-git clone https://github.com/Manoj-Gujare/mcpdoctor.git
-cd mcpdoctor
+git clone https://github.com/Manoj-Gujare/mcpgrader.git
+cd mcpgrader
 uv sync
 uv run pytest
 ```

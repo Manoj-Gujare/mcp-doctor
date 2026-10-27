@@ -6,10 +6,10 @@ import json
 from conftest import tool
 from rich.console import Console
 
-from mcpdoctor.client import ServerSnapshot
-from mcpdoctor.models import Report, ServerReport
-from mcpdoctor.render import render, to_json
-from mcpdoctor.scanner import analyze
+from mcpgrader.client import ServerSnapshot
+from mcpgrader.models import Report, ServerReport
+from mcpgrader.render import render, to_json
+from mcpgrader.scanner import analyze
 
 
 def sample_report() -> Report:

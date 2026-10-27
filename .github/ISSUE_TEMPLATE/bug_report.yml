@@ -1,5 +1,5 @@
 name: Bug report
-description: Something in mcpdoctor is broken or gives a wrong result.
+description: Something in mcpgrader is broken or gives a wrong result.
 labels: [bug]
 body:
   - type: textarea
@@ -13,7 +13,7 @@ body:
     id: command
     attributes:
       label: Command
-      placeholder: mcpdoctor scan --stdio "npx -y @modelcontextprotocol/server-memory"
+      placeholder: mcpgrader scan --stdio "npx -y @modelcontextprotocol/server-memory"
     validations:
       required: true
   - type: textarea
@@ -26,7 +26,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: Output of `mcpdoctor --version`
+      description: Output of `mcpgrader --version`
     validations:
       required: true
   - type: dropdown

@@ -1,4 +1,4 @@
-# Contributing to mcpdoctor
+# Contributing to mcpgrader
 
 Thanks for helping make MCP servers better. Bug reports, false-positive reports, and new checks
 are all welcome.
@@ -8,13 +8,13 @@ are all welcome.
 You need [uv](https://docs.astral.sh/uv/) and Python 3.10 or newer.
 
 ```bash
-git clone https://github.com/Manoj-Gujare/mcpdoctor.git
-cd mcpdoctor
+git clone https://github.com/Manoj-Gujare/mcpgrader.git
+cd mcpgrader
 uv sync                       # creates .venv with runtime + dev dependencies
 uv run pytest                 # run the test suite
 uv run ruff check .           # lint
 uv run ruff format .          # format
-uv run mcpdoctor scan --stdio "python tests/fixtures/bad_server.py"
+uv run mcpgrader scan --stdio "python tests/fixtures/bad_server.py"
 ```
 
 Optional: `uvx pre-commit install` runs ruff on every commit.
@@ -22,7 +22,7 @@ Optional: `uvx pre-commit install` runs ruff on every commit.
 ## Project layout
 
 ```
-src/mcpdoctor/
+src/mcpgrader/
   cli.py          Typer CLI: argument parsing, exit codes
   config.py       ServerTarget and parsing of mcpServers JSON configs
   client.py       connect over stdio / streamable HTTP, list tools, disconnect
@@ -44,12 +44,12 @@ tests/
 A check is a class with a `name`, a `description`, and a `run(tools)` method that returns a
 `CheckResult`. It must be pure: no network calls, no LLM calls, no global state.
 
-1. Create `src/mcpdoctor/checks/my_check.py`:
+1. Create `src/mcpgrader/checks/my_check.py`:
 
    ```python
    from collections.abc import Sequence
 
-   from mcpdoctor.models import CheckResult, Finding, Severity, ToolDef
+   from mcpgrader.models import CheckResult, Finding, Severity, ToolDef
 
 
    class MyCheck:
@@ -71,7 +71,7 @@ A check is a class with a `name`, a `description`, and a `run(tools)` method tha
            return CheckResult(check=self.name, findings=findings)
    ```
 
-2. Register it by adding `MyCheck()` to `CHECKS` in `src/mcpdoctor/checks/__init__.py`.
+2. Register it by adding `MyCheck()` to `CHECKS` in `src/mcpgrader/checks/__init__.py`.
 3. Add `tests/test_my_check.py` with cases that should and should not fire.
 4. If it changes what the fixture server reports, update `tests/test_integration.py`.
 5. Document it in the README's **Checks** section.
@@ -93,7 +93,7 @@ Guidelines for good findings:
 
 ## Releasing (maintainers)
 
-1. Bump `version` in `pyproject.toml` and `src/mcpdoctor/__init__.py`.
+1. Bump `version` in `pyproject.toml` and `src/mcpgrader/__init__.py`.
 2. Move **Unreleased** entries in `CHANGELOG.md` under the new version.
 3. Tag and push: `git tag v0.2.0 && git push origin v0.2.0`. The release workflow builds and
    publishes to PyPI via trusted publishing and creates a GitHub release.

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from mcpdoctor.config import ConfigError, ServerTarget, load_config, split_command
+from mcpgrader.config import ConfigError, ServerTarget, load_config, split_command
 
 
 def write(tmp_path: Path, data: object) -> Path:

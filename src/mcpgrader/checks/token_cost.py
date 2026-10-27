@@ -8,7 +8,7 @@ from functools import lru_cache
 
 import tiktoken
 
-from mcpdoctor.models import CheckResult, Finding, Severity, ToolDef
+from mcpgrader.models import CheckResult, Finding, Severity, ToolDef
 
 THRESHOLDS: dict[str, int] = {
     "total_warn": 2_000,

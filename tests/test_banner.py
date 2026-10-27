@@ -5,8 +5,8 @@ import io
 from rich.console import Console
 from typer.testing import CliRunner
 
-from mcpdoctor.banner import banner_lines, banner_text, should_show
-from mcpdoctor.cli import app
+from mcpgrader.banner import banner_lines, banner_text, should_show
+from mcpgrader.cli import app
 
 
 def test_banner_rows_are_aligned_and_fit_80_columns() -> None:

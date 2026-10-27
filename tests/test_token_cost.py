@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from conftest import tool
 
-from mcpdoctor.checks.token_cost import THRESHOLDS, TokenCostCheck, count_tool_tokens
-from mcpdoctor.models import Severity
+from mcpgrader.checks.token_cost import THRESHOLDS, TokenCostCheck, count_tool_tokens
+from mcpgrader.models import Severity
 
 
 def test_counts_tokens_per_tool_and_total() -> None:
