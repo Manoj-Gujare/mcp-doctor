@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "remote-example": {
+      "url": "http://localhost:8000/mcp",
+      "headers": { "Authorization": "Bearer ${MY_TOKEN}" },
+      "disabled": true
+    }
+  }
+}
