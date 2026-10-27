@@ -12,6 +12,7 @@ from pathlib import Path
 import anyio
 from rich.console import Console
 
+from mcpdoctor.banner import print_banner
 from mcpdoctor.config import ServerTarget
 from mcpdoctor.models import Report
 from mcpdoctor.render import render
@@ -31,6 +32,7 @@ def main() -> None:
         record=True, width=100, file=io.StringIO(), force_terminal=True, color_system="truecolor"
     )
     console.print('[bold green]$[/] mcpdoctor scan --stdio "python bad_server.py"\n')
+    print_banner(console, force=True)
     render(report, console)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     console.save_svg(str(OUTPUT), title="mcpdoctor")
