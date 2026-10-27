@@ -1,5 +1,5 @@
 name: Bug report
-description: Something in mcp-doctor is broken or gives a wrong result.
+description: Something in mcpdoctor is broken or gives a wrong result.
 labels: [bug]
 body:
   - type: textarea

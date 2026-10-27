@@ -11,10 +11,10 @@ import pytest
 from conftest import FIXTURE_SERVER
 from typer.testing import CliRunner
 
-from mcp_doctor.cli import app
-from mcp_doctor.config import ServerTarget
-from mcp_doctor.models import ServerReport, Severity
-from mcp_doctor.scanner import scan_target
+from mcpdoctor.cli import app
+from mcpdoctor.config import ServerTarget
+from mcpdoctor.models import ServerReport, Severity
+from mcpdoctor.scanner import scan_target
 
 runner = CliRunner()
 

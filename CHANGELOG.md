@@ -10,7 +10,7 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
-- `mcp-doctor scan` with `--stdio`, `--url` (streamable HTTP), and `--config`
+- `mcpdoctor scan` with `--stdio`, `--url` (streamable HTTP), and `--config`
   (Claude Desktop / Cursor / VS Code `mcpServers` JSON).
 - `token_cost` check: approximate per-tool and total token cost (tiktoken `cl100k_base`),
   top five heaviest tools.
@@ -20,5 +20,5 @@ All notable changes to this project are documented here. The format follows
 - Rich terminal output and `--json` output.
 - `--fail-under` and `--timeout` for CI use.
 
-[Unreleased]: https://github.com/Manoj-Gujare/mcp-doctor/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Manoj-Gujare/mcp-doctor/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Manoj-Gujare/mcpdoctor/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Manoj-Gujare/mcpdoctor/releases/tag/v0.1.0

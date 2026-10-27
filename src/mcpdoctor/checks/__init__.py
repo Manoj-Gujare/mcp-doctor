@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
-from mcp_doctor.checks.base import Check
-from mcp_doctor.checks.description_lint import DescriptionLintCheck
-from mcp_doctor.checks.token_cost import TokenCostCheck
-from mcp_doctor.models import CheckResult, ToolDef
+from mcpdoctor.checks.base import Check
+from mcpdoctor.checks.description_lint import DescriptionLintCheck
+from mcpdoctor.checks.token_cost import TokenCostCheck
+from mcpdoctor.models import CheckResult, ToolDef
 
 CHECKS: list[Check] = [
     TokenCostCheck(),

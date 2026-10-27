@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
-from mcp_doctor.models import Finding, Severity
+from mcpdoctor.models import Finding, Severity
 
 DEDUCTIONS: dict[Severity, int] = {
     Severity.ERROR: 15,

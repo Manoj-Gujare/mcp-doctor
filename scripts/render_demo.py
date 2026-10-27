@@ -12,10 +12,10 @@ from pathlib import Path
 import anyio
 from rich.console import Console
 
-from mcp_doctor.config import ServerTarget
-from mcp_doctor.models import Report
-from mcp_doctor.render import render
-from mcp_doctor.scanner import scan_target
+from mcpdoctor.config import ServerTarget
+from mcpdoctor.models import Report
+from mcpdoctor.render import render
+from mcpdoctor.scanner import scan_target
 
 ROOT = Path(__file__).resolve().parent.parent
 FIXTURE = ROOT / "tests" / "fixtures" / "bad_server.py"
@@ -33,7 +33,7 @@ def main() -> None:
     console.print('[bold green]$[/] mcpdoctor scan --stdio "python bad_server.py"\n')
     render(report, console)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    console.save_svg(str(OUTPUT), title="mcp-doctor")
+    console.save_svg(str(OUTPUT), title="mcpdoctor")
     print(f"wrote {OUTPUT.relative_to(ROOT)}")
 
 

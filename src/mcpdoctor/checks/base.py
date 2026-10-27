@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 from typing import Protocol
 
-from mcp_doctor.models import CheckResult, ToolDef
+from mcpdoctor.models import CheckResult, ToolDef
 
 
 class Check(Protocol):

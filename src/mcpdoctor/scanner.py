@@ -6,11 +6,11 @@ from collections.abc import Sequence
 
 import anyio
 
-from mcp_doctor import __version__, scoring
-from mcp_doctor.checks import Check, run_checks
-from mcp_doctor.client import ScanError, ServerSnapshot, fetch
-from mcp_doctor.config import ServerTarget
-from mcp_doctor.models import Report, ServerReport
+from mcpdoctor import __version__, scoring
+from mcpdoctor.checks import Check, run_checks
+from mcpdoctor.client import ScanError, ServerSnapshot, fetch
+from mcpdoctor.config import ServerTarget
+from mcpdoctor.models import Report, ServerReport
 
 
 def analyze(snapshot: ServerSnapshot, checks: Sequence[Check] | None = None) -> ServerReport:
