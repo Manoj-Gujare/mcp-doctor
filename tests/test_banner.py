@@ -5,6 +5,7 @@ import io
 from rich.console import Console
 from typer.testing import CliRunner
 
+from mcpgrader import __version__
 from mcpgrader.banner import banner_lines, banner_text, should_show
 from mcpgrader.cli import app
 
@@ -19,7 +20,7 @@ def test_banner_rows_are_aligned_and_fit_80_columns() -> None:
 def test_banner_text_has_tagline_and_version() -> None:
     plain = banner_text().plain
     assert "lint & score any MCP server" in plain
-    assert "v0.1.0" in plain
+    assert f"v{__version__}" in plain
 
 
 def test_banner_hidden_when_not_a_terminal() -> None:

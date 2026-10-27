@@ -8,11 +8,11 @@
   <a href="https://github.com/Manoj-Gujare/mcpgrader/actions/workflows/ci.yml"><img src="https://github.com/Manoj-Gujare/mcpgrader/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://pypi.org/project/mcpgrader/"><img src="https://img.shields.io/pypi/v/mcpgrader.svg" alt="PyPI"></a>
   <a href="https://pypi.org/project/mcpgrader/"><img src="https://img.shields.io/pypi/pyversions/mcpgrader.svg" alt="Python versions"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
+  <a href="https://github.com/Manoj-Gujare/mcpgrader/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
 <p align="center">
-  <img src="docs/assets/demo.svg" alt="mcpgrader scanning a server and reporting a score of 55/100" width="820">
+  <img src="https://raw.githubusercontent.com/Manoj-Gujare/mcpgrader/main/docs/assets/demo.svg" alt="mcpgrader scanning a server and reporting a score of 55/100" width="820">
 </p>
 
 Every MCP tool you connect is sent to the model on **every request**: its name, description, and
@@ -69,7 +69,7 @@ traceback.
 
 ## Example output
 
-Real output from scanning the deliberately flawed [fixture server](tests/fixtures/bad_server.py):
+Real output from scanning the deliberately flawed [fixture server](https://github.com/Manoj-Gujare/mcpgrader/blob/main/tests/fixtures/bad_server.py):
 
 ```text
 mcpgrader › notes-demo  6 tools · 0 prompts · 0 resources
@@ -129,7 +129,7 @@ Each tool is serialized the way clients send it to a model (`name`, `description
 | A single tool exceeds 500 tokens | warn |
 
 The report includes per-tool counts, the total, and the five heaviest tools. Thresholds live in
-one dict, `THRESHOLDS`, in [`token_cost.py`](src/mcpgrader/checks/token_cost.py).
+one dict, `THRESHOLDS`, in [`token_cost.py`](https://github.com/Manoj-Gujare/mcpgrader/blob/main/src/mcpgrader/checks/token_cost.py).
 
 ### Description lint (`description_lint`)
 
@@ -164,7 +164,7 @@ goes below 0:
 | 0–59 | F |
 
 The fixture above has 1 error and 6 warnings: `100 − 15 − 6 × 5 = 55`, grade **F**. The formula
-lives in [`scoring.py`](src/mcpgrader/scoring.py).
+lives in [`scoring.py`](https://github.com/Manoj-Gujare/mcpgrader/blob/main/src/mcpgrader/scoring.py).
 
 ## Use it in CI
 
@@ -207,7 +207,7 @@ Have an idea for a check? [Open an issue](https://github.com/Manoj-Gujare/mcpgra
 ## Contributing
 
 Contributions are welcome, especially new checks. A check is one file: see
-[CONTRIBUTING.md](CONTRIBUTING.md) for the five-minute guide.
+[CONTRIBUTING.md](https://github.com/Manoj-Gujare/mcpgrader/blob/main/CONTRIBUTING.md) for the five-minute guide.
 
 ```bash
 git clone https://github.com/Manoj-Gujare/mcpgrader.git
@@ -218,4 +218,4 @@ uv run pytest
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/Manoj-Gujare/mcpgrader/blob/main/LICENSE)
