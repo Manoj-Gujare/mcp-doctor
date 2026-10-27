@@ -13,4 +13,4 @@ body:
     id: proposal
     attributes:
       label: Proposal
-      description: What should mcp-doctor report, and what fix should it suggest?
+      description: What should mcpdoctor report, and what fix should it suggest?

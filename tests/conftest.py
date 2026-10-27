@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from mcp_doctor.models import ToolDef
+from mcpdoctor.models import ToolDef
 
 FIXTURE_SERVER = Path(__file__).parent / "fixtures" / "bad_server.py"
 

@@ -1,4 +1,4 @@
-<h1 align="center">mcp-doctor</h1>
+<h1 align="center">mcpdoctor</h1>
 
 <p align="center">
   <strong>Lint and score any MCP server in one command: token bloat, vague tool descriptions, and a concrete fix list.</strong>
@@ -12,12 +12,12 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/demo.svg" alt="mcp-doctor scanning a server and reporting a score of 55/100" width="820">
+  <img src="docs/assets/demo.svg" alt="mcpdoctor scanning a server and reporting a score of 55/100" width="820">
 </p>
 
 Every MCP tool you connect is sent to the model on **every request**: its name, description, and
 full JSON schema. A few heavy servers can quietly eat thousands of context tokens, and vague or
-near-duplicate descriptions make the model pick the wrong tool. `mcp-doctor` connects to a server,
+near-duplicate descriptions make the model pick the wrong tool. `mcpdoctor` connects to a server,
 reads what it advertises, and tells you exactly what to fix.
 
 ## Quick start
@@ -32,25 +32,23 @@ Or install it:
 
 ```bash
 pipx install mcpdoctor      # or: uv tool install mcpdoctor / pip install mcpdoctor
-mcp-doctor scan --url https://example.com/mcp
+mcpdoctor scan --url https://example.com/mcp
 ```
-
-Both `mcp-doctor` and `mcpdoctor` are installed as commands.
 
 ## Usage
 
 ```bash
 # A local server, launched over stdio
-mcp-doctor scan --stdio "npx -y @modelcontextprotocol/server-memory"
+mcpdoctor scan --stdio "npx -y @modelcontextprotocol/server-memory"
 
 # A remote server over streamable HTTP
-mcp-doctor scan --url http://localhost:8000/mcp
+mcpdoctor scan --url http://localhost:8000/mcp
 
 # Every server in your Claude Desktop / Cursor / VS Code config
-mcp-doctor scan --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
+mcpdoctor scan --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 # Machine-readable output, and fail CI below a score
-mcp-doctor scan --config .cursor/mcp.json --json --fail-under 80
+mcpdoctor scan --config .cursor/mcp.json --json --fail-under 80
 ```
 
 | Option | Description |
@@ -62,7 +60,7 @@ mcp-doctor scan --config .cursor/mcp.json --json --fail-under 80
 | `--fail-under <score>` | Exit with code 1 if any server scores below this. |
 | `--timeout <seconds>` | Per-server timeout for connecting and listing (default 30). |
 
-`mcp-doctor` runs `initialize`, `tools/list`, and (when the server supports them) `prompts/list`
+`mcpdoctor` runs `initialize`, `tools/list`, and (when the server supports them) `prompts/list`
 and `resources/list`, then disconnects. It never calls a tool.
 
 **Exit codes:** `0` scan finished, `1` a score is below `--fail-under`, `2` a server could not be
@@ -74,7 +72,7 @@ traceback.
 Real output from scanning the deliberately flawed [fixture server](tests/fixtures/bad_server.py):
 
 ```text
-mcp-doctor › notes-demo  6 tools · 0 prompts · 0 resources
+mcpdoctor › notes-demo  6 tools · 0 prompts · 0 resources
 
  Tool           ~Tokens   Issues   Description
  ────────────────────────────────────────────────────────────────────────────────────────────
@@ -131,7 +129,7 @@ Each tool is serialized the way clients send it to a model (`name`, `description
 | A single tool exceeds 500 tokens | warn |
 
 The report includes per-tool counts, the total, and the five heaviest tools. Thresholds live in
-one dict, `THRESHOLDS`, in [`token_cost.py`](src/mcp_doctor/checks/token_cost.py).
+one dict, `THRESHOLDS`, in [`token_cost.py`](src/mcpdoctor/checks/token_cost.py).
 
 ### Description lint (`description_lint`)
 
@@ -166,15 +164,15 @@ goes below 0:
 | 0–59 | F |
 
 The fixture above has 1 error and 6 warnings: `100 − 15 − 6 × 5 = 55`, grade **F**. The formula
-lives in [`scoring.py`](src/mcp_doctor/scoring.py).
+lives in [`scoring.py`](src/mcpdoctor/scoring.py).
 
 ## Use it in CI
 
 Fail a pull request when your server's tool definitions get worse:
 
 ```yaml
-# .github/workflows/mcp-doctor.yml
-name: mcp-doctor
+# .github/workflows/mcpdoctor.yml
+name: mcpdoctor
 on: [pull_request]
 jobs:
   audit:
@@ -191,7 +189,7 @@ jobs:
 and metrics (per-tool token counts included), the score, and the grade.
 
 ```bash
-mcp-doctor scan --stdio "python server.py" --json | jq '.servers[0] | {score, grade}'
+mcpdoctor scan --stdio "python server.py" --json | jq '.servers[0] | {score, grade}'
 ```
 
 ## Roadmap

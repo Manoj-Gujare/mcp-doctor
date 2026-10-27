@@ -15,6 +15,6 @@ you prefer otherwise.
 
 ## Scope notes
 
-`mcp-doctor` starts the server command you give it (`--stdio` or `command` in a config file) with
+`mcpdoctor` starts the server command you give it (`--stdio` or `command` in a config file) with
 your user's permissions, just like an MCP client does. Only scan servers you trust to run on your
 machine. It never calls tools on the server; it only lists them.
