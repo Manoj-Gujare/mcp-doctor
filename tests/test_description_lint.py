@@ -3,8 +3,8 @@ from __future__ import annotations
 import pytest
 from conftest import tool
 
-from mcpdoctor.checks.description_lint import DescriptionLintCheck, is_vague, jaccard
-from mcpdoctor.models import Severity
+from mcpgrader.checks.description_lint import DescriptionLintCheck, is_vague, jaccard
+from mcpgrader.models import Severity
 
 GOOD = "Get the current weather for a city, including temperature and wind speed."
 DOC = {"type": "string", "description": "City name."}

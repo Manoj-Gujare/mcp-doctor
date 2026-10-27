@@ -1,4 +1,4 @@
-"""Big gradient "MCPDOCTOR" banner for interactive terminals."""
+"""Big gradient "MCPGRADER" banner for interactive terminals."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.style import Style
 from rich.text import Text
 
-from mcpdoctor import __version__
+from mcpgrader import __version__
 
 TAGLINE = "lint & score any MCP server"
 
@@ -45,21 +45,29 @@ LETTERS: dict[str, list[str]] = {
         "██████╔╝",
         "╚═════╝ ",
     ],
-    "O": [
+    "G": [
         " ██████╗ ",
-        "██╔═══██╗",
-        "██║   ██║",
+        "██╔════╝ ",
+        "██║  ███╗",
         "██║   ██║",
         "╚██████╔╝",
         " ╚═════╝ ",
     ],
-    "T": [
-        "████████╗",
-        "╚══██╔══╝",
-        "   ██║   ",
-        "   ██║   ",
-        "   ██║   ",
-        "   ╚═╝   ",
+    "A": [
+        " █████╗ ",
+        "██╔══██╗",
+        "███████║",
+        "██╔══██║",
+        "██║  ██║",
+        "╚═╝  ╚═╝",
+    ],
+    "E": [
+        "███████╗",
+        "██╔════╝",
+        "█████╗  ",
+        "██╔══╝  ",
+        "███████╗",
+        "╚══════╝",
     ],
     "R": [
         "██████╗ ",
@@ -75,7 +83,7 @@ GRADIENT_START = (0, 200, 255)  # cyan
 GRADIENT_END = (200, 80, 255)  # violet
 
 
-def banner_lines(word: str = "MCPDOCTOR") -> list[str]:
+def banner_lines(word: str = "MCPGRADER") -> list[str]:
     return ["".join(LETTERS[ch][row] for ch in word) for row in range(6)]
 
 

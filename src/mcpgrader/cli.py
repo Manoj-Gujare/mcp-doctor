@@ -11,11 +11,11 @@ from typing import Annotated
 import typer
 from rich.console import Console
 
-from mcpdoctor import __version__
-from mcpdoctor.banner import print_banner
-from mcpdoctor.config import ConfigError, ServerTarget, load_config
-from mcpdoctor.render import render, to_json
-from mcpdoctor.scanner import scan as run_scan
+from mcpgrader import __version__
+from mcpgrader.banner import print_banner
+from mcpgrader.config import ConfigError, ServerTarget, load_config
+from mcpgrader.render import render, to_json
+from mcpgrader.scanner import scan as run_scan
 
 # Exit codes
 EXIT_OK = 0
@@ -23,7 +23,7 @@ EXIT_BELOW_THRESHOLD = 1
 EXIT_SCAN_FAILED = 2
 
 app = typer.Typer(
-    name="mcpdoctor",
+    name="mcpgrader",
     help="Audit MCP servers for token bloat and tool-description quality.",
     add_completion=False,
     rich_markup_mode="rich",
@@ -33,7 +33,7 @@ app = typer.Typer(
 
 def _version(value: bool) -> None:
     if value:
-        typer.echo(f"mcpdoctor {__version__}")
+        typer.echo(f"mcpgrader {__version__}")
         raise typer.Exit()
 
 

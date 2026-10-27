@@ -25,7 +25,7 @@ nationality, personal appearance, race, religion, or sexual identity and orienta
 ## Enforcement
 
 Report unacceptable behavior privately to the maintainers through
-[GitHub security advisories](https://github.com/Manoj-Gujare/mcpdoctor/security/advisories/new)
+[GitHub security advisories](https://github.com/Manoj-Gujare/mcpgrader/security/advisories/new)
 or by contacting a maintainer directly on GitHub. All reports are reviewed promptly and kept
 confidential. Maintainers may remove, edit, or reject contributions, and may temporarily or
 permanently ban contributors whose behavior is harmful.

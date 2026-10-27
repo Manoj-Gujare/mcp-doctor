@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from mcpdoctor.models import Finding, Severity
-from mcpdoctor.scoring import DEDUCTIONS, grade, score
+from mcpgrader.models import Finding, Severity
+from mcpgrader.scoring import DEDUCTIONS, grade, score
 
 
 def finding(severity: Severity) -> Finding:

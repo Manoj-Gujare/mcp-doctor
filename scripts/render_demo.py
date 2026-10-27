@@ -12,11 +12,11 @@ from pathlib import Path
 import anyio
 from rich.console import Console
 
-from mcpdoctor.banner import print_banner
-from mcpdoctor.config import ServerTarget
-from mcpdoctor.models import Report
-from mcpdoctor.render import render
-from mcpdoctor.scanner import scan_target
+from mcpgrader.banner import print_banner
+from mcpgrader.config import ServerTarget
+from mcpgrader.models import Report
+from mcpgrader.render import render
+from mcpgrader.scanner import scan_target
 
 ROOT = Path(__file__).resolve().parent.parent
 FIXTURE = ROOT / "tests" / "fixtures" / "bad_server.py"
@@ -31,11 +31,11 @@ def main() -> None:
     console = Console(
         record=True, width=100, file=io.StringIO(), force_terminal=True, color_system="truecolor"
     )
-    console.print('[bold green]$[/] mcpdoctor scan --stdio "python bad_server.py"\n')
+    console.print('[bold green]$[/] mcpgrader scan --stdio "python bad_server.py"\n')
     print_banner(console, force=True)
     render(report, console)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    console.save_svg(str(OUTPUT), title="mcpdoctor")
+    console.save_svg(str(OUTPUT), title="mcpgrader")
     print(f"wrote {OUTPUT.relative_to(ROOT)}")
 
 

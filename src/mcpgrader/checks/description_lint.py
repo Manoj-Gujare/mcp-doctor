@@ -7,7 +7,7 @@ from collections.abc import Iterable, Sequence
 from itertools import combinations
 from typing import Any
 
-from mcpdoctor.models import CheckResult, Finding, Severity, ToolDef
+from mcpgrader.models import CheckResult, Finding, Severity, ToolDef
 
 LIMITS: dict[str, float] = {
     "min_chars": 20,

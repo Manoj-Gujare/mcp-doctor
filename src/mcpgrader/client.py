@@ -15,12 +15,12 @@ from mcp.client.stdio import stdio_client
 from mcp.client.streamable_http import streamable_http_client
 from mcp.types import PaginatedRequestParams
 
-from mcpdoctor import __version__
-from mcpdoctor.config import ServerTarget
-from mcpdoctor.models import ToolDef
+from mcpgrader import __version__
+from mcpgrader.config import ServerTarget
+from mcpgrader.models import ToolDef
 
 MAX_PAGES = 100  # guard against servers that return the same cursor forever
-CLIENT_INFO = Implementation(name="mcpdoctor", version=__version__)
+CLIENT_INFO = Implementation(name="mcpgrader", version=__version__)
 
 
 class ScanError(Exception):

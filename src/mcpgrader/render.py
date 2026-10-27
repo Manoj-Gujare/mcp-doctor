@@ -10,8 +10,8 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
-from mcpdoctor.checks.token_cost import THRESHOLDS
-from mcpdoctor.models import Finding, Report, ServerReport, Severity
+from mcpgrader.checks.token_cost import THRESHOLDS
+from mcpgrader.models import Finding, Report, ServerReport, Severity
 
 SEVERITY_STYLE: dict[Severity, str] = {
     Severity.ERROR: "bold red",
@@ -66,7 +66,7 @@ def _render_server(server: ServerReport, console: Console, g: dict[str, str]) ->
 
 def _header(server: ServerReport, g: dict[str, str]) -> Text:
     text = Text()
-    text.append("mcpdoctor ", style="bold magenta")
+    text.append("mcpgrader ", style="bold magenta")
     text.append(f"{g['arrow']} ", style="dim")
     text.append(server.server, style="bold")
     if not server.error:

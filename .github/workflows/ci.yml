@@ -47,4 +47,4 @@ jobs:
       - uses: astral-sh/setup-uv@v7
       - run: uv build
       - name: Smoke-test the wheel
-        run: uvx --from ./dist/*.whl mcpdoctor --version
+        run: uvx --from ./dist/*.whl mcpgrader --version
