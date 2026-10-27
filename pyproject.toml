@@ -29,10 +29,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Manoj-Gujare/mcp-doctor"
-Repository = "https://github.com/Manoj-Gujare/mcp-doctor"
-Issues = "https://github.com/Manoj-Gujare/mcp-doctor/issues"
-Changelog = "https://github.com/Manoj-Gujare/mcp-doctor/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Manoj-Gujare/mcpdoctor"
+Repository = "https://github.com/Manoj-Gujare/mcpdoctor"
+Issues = "https://github.com/Manoj-Gujare/mcpdoctor/issues"
+Changelog = "https://github.com/Manoj-Gujare/mcpdoctor/blob/main/CHANGELOG.md"
 
 [project.scripts]
 mcpdoctor = "mcpdoctor.cli:app"

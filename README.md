@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Manoj-Gujare/mcp-doctor/actions/workflows/ci.yml"><img src="https://github.com/Manoj-Gujare/mcp-doctor/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/Manoj-Gujare/mcpdoctor/actions/workflows/ci.yml"><img src="https://github.com/Manoj-Gujare/mcpdoctor/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://pypi.org/project/mcpdoctor/"><img src="https://img.shields.io/pypi/v/mcpdoctor.svg" alt="PyPI"></a>
   <a href="https://pypi.org/project/mcpdoctor/"><img src="https://img.shields.io/pypi/pyversions/mcpdoctor.svg" alt="Python versions"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
@@ -202,7 +202,7 @@ mcpdoctor scan --stdio "python server.py" --json | jq '.servers[0] | {score, gra
 - [ ] **Public server leaderboard**: scan popular public MCP servers and publish their scores
 - [ ] SARIF output for GitHub code scanning
 
-Have an idea for a check? [Open an issue](https://github.com/Manoj-Gujare/mcp-doctor/issues/new/choose).
+Have an idea for a check? [Open an issue](https://github.com/Manoj-Gujare/mcpdoctor/issues/new/choose).
 
 ## Contributing
 
@@ -210,8 +210,8 @@ Contributions are welcome, especially new checks. A check is one file: see
 [CONTRIBUTING.md](CONTRIBUTING.md) for the five-minute guide.
 
 ```bash
-git clone https://github.com/Manoj-Gujare/mcp-doctor.git
-cd mcp-doctor
+git clone https://github.com/Manoj-Gujare/mcpdoctor.git
+cd mcpdoctor
 uv sync
 uv run pytest
 ```

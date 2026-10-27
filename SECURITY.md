@@ -7,7 +7,7 @@ Security fixes are made for the latest released version.
 ## Reporting a vulnerability
 
 Please do not open a public issue for security problems. Report them privately through
-[GitHub security advisories](https://github.com/Manoj-Gujare/mcp-doctor/security/advisories/new).
+[GitHub security advisories](https://github.com/Manoj-Gujare/mcpdoctor/security/advisories/new).
 
 Include what you found, how to reproduce it, and the impact you expect. You should get a reply
 within a few days. Once a fix is released, the advisory is published with credit to you unless

@@ -20,5 +20,5 @@ All notable changes to this project are documented here. The format follows
 - Rich terminal output and `--json` output.
 - `--fail-under` and `--timeout` for CI use.
 
-[Unreleased]: https://github.com/Manoj-Gujare/mcp-doctor/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Manoj-Gujare/mcp-doctor/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Manoj-Gujare/mcpdoctor/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Manoj-Gujare/mcpdoctor/releases/tag/v0.1.0

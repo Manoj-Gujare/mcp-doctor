@@ -8,8 +8,8 @@ are all welcome.
 You need [uv](https://docs.astral.sh/uv/) and Python 3.10 or newer.
 
 ```bash
-git clone https://github.com/Manoj-Gujare/mcp-doctor.git
-cd mcp-doctor
+git clone https://github.com/Manoj-Gujare/mcpdoctor.git
+cd mcpdoctor
 uv sync                       # creates .venv with runtime + dev dependencies
 uv run pytest                 # run the test suite
 uv run ruff check .           # lint
