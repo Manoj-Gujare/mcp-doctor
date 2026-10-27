@@ -12,6 +12,7 @@ import typer
 from rich.console import Console
 
 from mcpdoctor import __version__
+from mcpdoctor.banner import print_banner
 from mcpdoctor.config import ConfigError, ServerTarget, load_config
 from mcpdoctor.render import render, to_json
 from mcpdoctor.scanner import scan as run_scan
@@ -25,7 +26,6 @@ app = typer.Typer(
     name="mcpdoctor",
     help="Audit MCP servers for token bloat and tool-description quality.",
     add_completion=False,
-    no_args_is_help=True,
     rich_markup_mode="rich",
     pretty_exceptions_show_locals=False,  # locals can hold env vars and tokens
 )
@@ -51,14 +51,20 @@ def _silence_stdout() -> None:
     os.dup2(devnull, sys.stdout.fileno())
 
 
-@app.callback()
+@app.callback(invoke_without_command=True)
 def main(
+    ctx: typer.Context,
     version: Annotated[
         bool,
         typer.Option("--version", "-V", callback=_version, is_eager=True, help="Show version."),
     ] = False,
 ) -> None:
     """Audit MCP servers for token bloat and tool-description quality."""
+    if ctx.invoked_subcommand is None:
+        _ensure_safe_streams()
+        print_banner(Console())
+        typer.echo(ctx.get_help())
+        raise typer.Exit()
 
 
 @app.command()
@@ -132,6 +138,7 @@ def scan(
         report = run_scan(targets, timeout)
     else:
         console = Console()
+        print_banner(console)
         with console.status(f"Scanning {len(targets)} server(s)...", spinner="dots"):
             report = run_scan(targets, timeout)
 

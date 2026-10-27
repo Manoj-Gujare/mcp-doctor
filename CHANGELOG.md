@@ -6,6 +6,11 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- Gradient MCPDOCTOR banner at the top of `mcpdoctor` and `mcpdoctor scan` in interactive
+  terminals. Hidden with `--json`, when output is piped, and on narrow or non-Unicode terminals.
+
 ## [0.1.0]
 
 ### Added
