@@ -1,0 +1,25 @@
+name: False positive / scoring feedback
+description: A check flagged something that is fine, or missed something that is not.
+labels: [checks]
+body:
+  - type: input
+    id: check
+    attributes:
+      label: Check
+      placeholder: description_lint
+    validations:
+      required: true
+  - type: textarea
+    id: tool
+    attributes:
+      label: Tool definition
+      description: The tool name, description, and inputSchema (JSON) that triggered the finding.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is this wrong?
+    validations:
+      required: true
