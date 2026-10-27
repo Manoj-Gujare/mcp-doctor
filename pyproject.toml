@@ -1,6 +1,6 @@
 [project]
 name = "mcpgrader"
-version = "0.1.0"
+version = "0.1.1"
 description = "Lint and score any MCP server: token bloat, vague tool descriptions, and a concrete fix list."
 readme = "README.md"
 license = "MIT"

@@ -6,6 +6,12 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-28
+
+### Fixed
+
+- README demo image and links now work on PyPI (absolute URLs instead of repo-relative paths).
+
 ## [0.1.0] - 2026-10-28
 
 ### Added
@@ -22,5 +28,6 @@ All notable changes to this project are documented here. The format follows
   terminals. Hidden with `--json`, when output is piped, and on narrow or non-Unicode terminals.
 - `--fail-under` and `--timeout` for CI use.
 
-[Unreleased]: https://github.com/Manoj-Gujare/mcpgrader/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Manoj-Gujare/mcpgrader/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/Manoj-Gujare/mcpgrader/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Manoj-Gujare/mcpgrader/releases/tag/v0.1.0
