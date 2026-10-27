@@ -6,12 +6,7 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-### Added
-
-- Gradient MCPGRADER banner at the top of `mcpgrader` and `mcpgrader scan` in interactive
-  terminals. Hidden with `--json`, when output is piped, and on narrow or non-Unicode terminals.
-
-## [0.1.0]
+## [0.1.0] - 2026-10-28
 
 ### Added
 
@@ -23,6 +18,8 @@ All notable changes to this project are documented here. The format follows
   parameters, and near-duplicate tools.
 - Score from 0 to 100 with an A to F grade.
 - Rich terminal output and `--json` output.
+- Gradient MCPGRADER banner at the top of `mcpgrader` and `mcpgrader scan` in interactive
+  terminals. Hidden with `--json`, when output is piped, and on narrow or non-Unicode terminals.
 - `--fail-under` and `--timeout` for CI use.
 
 [Unreleased]: https://github.com/Manoj-Gujare/mcpgrader/compare/v0.1.0...HEAD
